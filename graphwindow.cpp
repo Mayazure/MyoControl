@@ -25,7 +25,12 @@ void Form::setupRealtimeDataDeom(QCustomPlot *customPlot)
     */
 
     customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QT::blue));
+    customPlot->graph(0)->setPen(QPen(Qt::blue));
     customPlot->graph(0)->setName("Line0");
+
+}
+
+void Form::realtimeDataSlot()
+{
 
 }
