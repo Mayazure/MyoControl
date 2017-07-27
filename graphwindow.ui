@@ -23,6 +23,21 @@
    <item>
     <widget class="QCustomPlot" name="customePlot2" native="true"/>
    </item>
+   <item>
+    <widget class="QCustomPlot" name="customePlot3" native="true"/>
+   </item>
+   <item>
+    <widget class="QCustomPlot" name="customePlot4" native="true"/>
+   </item>
+   <item>
+    <widget class="QCustomPlot" name="customePlot5" native="true"/>
+   </item>
+   <item>
+    <widget class="QCustomPlot" name="customePlot6" native="true"/>
+   </item>
+   <item>
+    <widget class="QCustomPlot" name="customePlot7" native="true"/>
+   </item>
   </layout>
  </widget>
  <customwidgets>

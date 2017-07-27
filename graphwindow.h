@@ -15,7 +15,14 @@ class Form : public QWidget
 public:
     explicit Form(QWidget *parent = 0);
     ~Form();
-    void setupRealtimeData(QCustomPlot *customPlot, QCustomPlot *customPlot1, QCustomPlot *customPlot2);
+    void setupRealtimeData(QCustomPlot *customPlot,
+                           QCustomPlot *customPlot1,
+                           QCustomPlot *customPlot2,
+                           QCustomPlot *customPlot3,
+                           QCustomPlot *customPlot4,
+                           QCustomPlot *customPlot5,
+                           QCustomPlot *customPlot6,
+                           QCustomPlot *customPlot7);
 
 public slots:
     void realtimeDataSlot(int a,int b,int c, int d, int e, int f,int g, int h);
