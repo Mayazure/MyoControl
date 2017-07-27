@@ -75,6 +75,7 @@ void MainWindow::updateTotalNum(QString num, int label)
 
 MainWindow::~MainWindow()
 {
+    adapter->setRunningFlag(false);
     delete ui;
     delete adapter;
 }
