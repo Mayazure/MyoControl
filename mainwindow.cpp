@@ -6,6 +6,7 @@
 #include "qtextstream.h"
 #include "Qtextstream"
 #include <QFile>
+#include <QList>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(adapter,SIGNAL(requestUpdateConsole(QString)),this,SLOT(updateConsole(QString)));
     connect(adapter,SIGNAL(requestUpdateTotalNum(QString,int)),this,SLOT(updateTotalNum(QString,int)));
     //    adapter->test();
+    form = new Form();
+    connect(adapter,SIGNAL(requestUpdateGraph(int,int,int,int,int,int,int,int)),form,SLOT(realtimeDataSlot(int,int,int,int,int,int,int,int)));
+    form->show();
 }
 
 void MainWindow::updateConsole(QString data)
@@ -63,6 +67,11 @@ void MainWindow::updateTotalNum(QString num, int label)
         break;
     }
 }
+
+//void MainWindow::updateGraph(int data)
+//{
+//    this->graphAdapter->addData(data);
+//}
 
 MainWindow::~MainWindow()
 {
@@ -186,11 +195,13 @@ void MainWindow::on_buttonCtrStart_clicked()
 {
     this->adapter->setRunningFlag(true);
     this->adapter->start();
+//    this->graphAdapter->start();
 }
 
 void MainWindow::on_buttonCtrStop_clicked()
 {
     this->adapter->setRunningFlag(false);
+//    this->graphAdapter->close();
 }
 
 void MainWindow::on_buttonPause_clicked()

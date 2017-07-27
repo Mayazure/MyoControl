@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include "adapter.h"
+#include "graphwindow.h"
 
 class Adapter;
+class Form;
 
 namespace Ui {
 class MainWindow;
@@ -15,24 +17,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);    
+    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
 private slots:
     void on_buttonBse1_clicked();
-
     void on_buttonBse2_clicked();
-
     void on_buttonBse3_clicked();
-
     void on_buttonBse4_clicked();
-
     void on_buttonFreeNon_clicked();
-
     void on_buttonMotorNon_clicked();
-
     void on_buttonMotorFull_clicked();
-
     void on_buttonCityFull_clicked();
 
 private:
@@ -40,6 +35,7 @@ private:
     void setEventState(QString state);
     void setEventName(QString name);
     Adapter *adapter;
+    Form *form;
 
 private slots:
     void updateConsole(QString data);

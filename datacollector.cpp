@@ -27,6 +27,9 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         }
         emgFile << std::endl;
         ad->updateTotalNum(0);
+
+        ad->updateGraph(emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
+//        qDebug()<<a[0];
     }
 }
 

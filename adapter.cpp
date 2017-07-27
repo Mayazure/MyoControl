@@ -1,4 +1,5 @@
  #include "adapter.h"
+#include <QDebug>
 
 Adapter::Adapter(QObject *parent):QThread(parent)
 {
@@ -34,6 +35,12 @@ void Adapter::updateTotalNum(int label)
         emit requestUpdateTotalNum(QString::number(oreNum),4);
         break;
     }
+}
+
+void Adapter::updateGraph(int a,int b,int c, int d, int e, int f,int g, int h)
+{
+//    qDebug()<<emg[0];
+    emit requestUpdateGraph(a,b,c,d,e,f,g,h);
 }
 
 void Adapter::setPath(QString filePath, QString fileName)
