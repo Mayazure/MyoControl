@@ -32,17 +32,38 @@
       <x>10</x>
       <y>10</y>
       <width>141</width>
-      <height>81</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="title">
      <string>Control</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>1</number>
+     </property>
+     <property name="leftMargin">
+      <number>3</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>3</number>
+     </property>
+     <property name="bottomMargin">
+      <number>2</number>
+     </property>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="buttonCtrStart">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
            <width>70</width>
@@ -56,6 +77,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="buttonCtrStop">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
            <width>70</width>
@@ -73,6 +100,18 @@
       <layout class="QHBoxLayout" name="horizontalLayout_7">
        <item>
         <widget class="QPushButton" name="graphButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>Graph</string>
          </property>
@@ -97,16 +136,6 @@
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLabel" name="eventState">
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Ready</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QLineEdit" name="eventName"/>
        </item>
@@ -139,67 +168,78 @@
     <property name="geometry">
      <rect>
       <x>9</x>
-      <y>192</y>
+      <y>162</y>
       <width>141</width>
       <height>221</height>
      </rect>
     </property>
     <property name="title">
-     <string>Activity</string>
+     <string>Activity Label</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">
+     <property name="spacing">
+      <number>1</number>
+     </property>
+     <property name="leftMargin">
+      <number>3</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>3</number>
+     </property>
+     <property name="bottomMargin">
+      <number>2</number>
+     </property>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <widget class="QPushButton" name="buttonTest">
-         <property name="text">
-          <string>Test</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonFreeNon">
-         <property name="text">
-          <string>Free</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonMotorNon">
-         <property name="text">
-          <string>MotorWay-non</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonMotorFull">
-         <property name="text">
-          <string>Motorway-full</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonHighNon">
-         <property name="text">
-          <string>HighWay-non</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonHighFull">
-         <property name="text">
-          <string>HighWay-full</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonCityFull">
-         <property name="text">
-          <string>City-full</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QPushButton" name="buttonTest">
+       <property name="text">
+        <string>Test</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonFreeNon">
+       <property name="text">
+        <string>Free</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonMotorNon">
+       <property name="text">
+        <string>MotorWay-non</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonMotorFull">
+       <property name="text">
+        <string>Motorway-full</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonHighNon">
+       <property name="text">
+        <string>HighWay-non</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonHighFull">
+       <property name="text">
+        <string>HighWay-full</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonCityFull">
+       <property name="text">
+        <string>City-full</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -207,15 +247,30 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>97</y>
+      <y>87</y>
       <width>141</width>
-      <height>91</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="title">
-     <string>Baseline</string>
+     <string>Baseline Label</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="spacing">
+      <number>1</number>
+     </property>
+     <property name="leftMargin">
+      <number>3</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>3</number>
+     </property>
+     <property name="bottomMargin">
+      <number>2</number>
+     </property>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
@@ -541,6 +596,25 @@
       </spacer>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="eventState">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>390</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Stop</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
   </widget>
  </widget>
