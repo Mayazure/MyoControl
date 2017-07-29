@@ -21,8 +21,11 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         char* eventChar = temp.data();
         emgFile << eventChar;
 
+        int emgData[8];
+
         for (size_t i = 0; i < 8; i++) {
             emgFile << ',' << static_cast<int>(emg[i]);
+            emgData[i] = emg[i];
 
         }
         emgFile << std::endl;

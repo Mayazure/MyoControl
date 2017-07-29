@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //    adapter->test();
     form = new Form();
     connect(adapter,SIGNAL(requestUpdateGraph(int,int,int,int,int,int,int,int)),form,SLOT(realtimeDataSlot(int,int,int,int,int,int,int,int)));
-    form->show();
+//    form->show();
 }
 
 void MainWindow::updateConsole(QString data)
@@ -217,3 +217,13 @@ void MainWindow::on_buttonPause_clicked()
 }
 
 
+
+void MainWindow::on_graphButton_clicked()
+{
+    if(form->isHidden()){
+        form->show();
+    }
+    else{
+        form->hide();
+    }
+}
