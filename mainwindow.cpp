@@ -140,7 +140,7 @@ void MainWindow::on_buttonBse8_clicked()
 
 void MainWindow::on_buttonTest_clicked()
 {
-    setEventName("free-non");
+    setEventName("test");
     setEventState("ready");
 }
 
