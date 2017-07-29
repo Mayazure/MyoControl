@@ -30,6 +30,7 @@ public slots:
 private:
     Ui::Form *ui;
     int count = 0;
+    QList<QCustomPlot*> plots;
 };
 
 #endif // GRAPHWINDOW_H

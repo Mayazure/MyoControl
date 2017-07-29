@@ -7,6 +7,16 @@ Form::Form(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    plots.clear();
+    plots.append(ui->customePlot);
+    plots.append(ui->customePlot1);
+    plots.append(ui->customePlot2);
+    plots.append(ui->customePlot3);
+    plots.append(ui->customePlot4);
+    plots.append(ui->customePlot5);
+    plots.append(ui->customePlot6);
+    plots.append(ui->customePlot7);
+
     setupRealtimeData(ui->customePlot,
                       ui->customePlot1,
                       ui->customePlot2,
@@ -73,7 +83,7 @@ void Form::setupRealtimeData(QCustomPlot *customPlot,
     customPlot7->graph(0)->setName("Line7");
 
     QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
-    timeTicker->setTimeFormat("%h:%m:%s");
+    timeTicker->setTimeFormat("%h:%m:%s:%z");
     customPlot->xAxis->setTicker(timeTicker);
     customPlot->axisRect()->setupFullAxesBox();
     customPlot->yAxis->setRange(-120, 120);
@@ -134,7 +144,7 @@ void Form::setupRealtimeData(QCustomPlot *customPlot,
 
 void Form::realtimeDataSlot(int a,int b,int c, int d, int e, int f,int g, int h)
 {
-//    qDebug()<<emg[0];
+    //    qDebug()<<emg[0];
     static QTime time(QTime::currentTime());
     double key = time.elapsed()/1000.0;
     static double lastPointKey=0;
