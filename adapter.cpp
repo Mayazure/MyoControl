@@ -120,6 +120,7 @@ void Adapter::run()
 
         // If a standard exception occurred, we print out its message and exit.
     } catch (const std::exception& e) {
+        emit requestUpdateConsole(e.what());
         std::cerr << "Error: " << e.what() << std::endl;
         std::cerr << "Press enter to continue.";
         std::cin.ignore();

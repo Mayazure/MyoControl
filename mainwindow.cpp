@@ -138,6 +138,12 @@ void MainWindow::on_buttonBse8_clicked()
     setEventState("ready");
 }
 
+void MainWindow::on_buttonTest_clicked()
+{
+    setEventName("free-non");
+    setEventState("ready");
+}
+
 void MainWindow::on_buttonFreeNon_clicked()
 {
     setEventName("free-non");
@@ -181,6 +187,7 @@ void MainWindow::on_buttonStart_clicked()
         updateConsole("No event specified! Recording paused.");
     }
     else{
+        setEventState("record");
         this->adapter->setEvent(newEvent);
         this->adapter->setLoggingFlag(true);
     }
@@ -190,13 +197,13 @@ void MainWindow::on_buttonStart_clicked()
 void MainWindow::on_buttonEnd_clicked()
 {
     this->adapter->setLoggingFlag(false);
+    setEventState("ready");
 }
 
 void MainWindow::on_buttonCtrStart_clicked()
 {
     this->adapter->setRunningFlag(true);
     this->adapter->start();
-//    this->graphAdapter->start();
 }
 
 void MainWindow::on_buttonCtrStop_clicked()
