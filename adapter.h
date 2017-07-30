@@ -22,7 +22,7 @@ public:
 
     void updateConsole(QString data);
     void updateTotalNum(int label);
-    void updateGraph(int a,int b,int c, int d, int e, int f,int g, int h);
+    void updateGraph(int* emg, int a,int b,int c, int d, int e, int f,int g, int h);
 
     void setPath(QString filePath, QString fileName);
     QString getFilePath();
@@ -45,7 +45,7 @@ private:
 signals:
     void requestUpdateConsole(QString data);
     void requestUpdateTotalNum(QString num, int label);
-    void requestUpdateGraph(int a,int b,int c, int d, int e, int f,int g, int h);
+    void requestUpdateGraph(int*, int a,int b,int c, int d, int e, int f,int g, int h);
 
 };
 

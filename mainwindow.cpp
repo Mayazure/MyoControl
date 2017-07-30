@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(adapter,SIGNAL(requestUpdateTotalNum(QString,int)),this,SLOT(updateTotalNum(QString,int)));
     //    adapter->test();
     form = new Form();
-    connect(adapter,SIGNAL(requestUpdateGraph(int,int,int,int,int,int,int,int)),form,SLOT(realtimeDataSlot(int,int,int,int,int,int,int,int)));
+    connect(adapter,SIGNAL(requestUpdateGraph(int*,int,int,int,int,int,int,int,int)),form,SLOT(realtimeDataSlot(int*,int,int,int,int,int,int,int,int)));
 //    form->show();
 }
 

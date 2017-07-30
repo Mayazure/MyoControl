@@ -21,7 +21,7 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         char* eventChar = temp.data();
         emgFile << eventChar;
 
-        int emgData[8];
+        static int emgData[8];
 
         for (size_t i = 0; i < 8; i++) {
             emgFile << ',' << static_cast<int>(emg[i]);
@@ -31,7 +31,7 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         emgFile << std::endl;
         ad->updateTotalNum(0);
 
-        ad->updateGraph(emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
+        ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
 //        qDebug()<<a[0];
     }
 }

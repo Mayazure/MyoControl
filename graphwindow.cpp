@@ -41,8 +41,15 @@ void Form::setupRealtimeData(QList<QCustomPlot*> plots)
     customPlot->legend->setFont(font);
     */
 
-    QSharedPointer<QCPAxisTickerDateTime> timeTicker(new QCPAxisTickerDateTime);
-    timeTicker->setDateTimeFormat("hh:mm:ss:zzzz");
+    //    QSharedPointer<QCPAxisTickerDateTime> timeTicker(new QCPAxisTickerDateTime);
+    //    QSharedPointer<QCPAxisTickerFixed> timeTicker(new QCPAxisTickerFixed);
+    //    timeTicker->setDateTimeFormat("hh:mm:ss:zzzz");
+    //    timeTicker->setTickStep(1.0);
+
+    QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
+    timeTicker->setTimeFormat("%h:%m:%s:%z");
+    timeTicker->setTickStepStrategy(QCPAxisTicker::TickStepStrategy::tssReadability);
+    timeTicker->setTickCount(10);
 
     for(int i=0;i<8;i++){
         plots.at(i)->addGraph();
@@ -59,27 +66,21 @@ void Form::setupRealtimeData(QList<QCustomPlot*> plots)
 
 }
 
-void Form::realtimeDataSlot(int a,int b,int c, int d, int e, int f,int g, int h)
+void Form::realtimeDataSlot(int* emgData, int a,int b,int c, int d, int e, int f,int g, int h)
 {
-    //    qDebug()<<emg[0];
-
     int emg[8]={a,b,c,d,e,f,g,h};
 
-//    static QTime time(QTime::currentTime());
-//    double key = time.elapsed()/1000.0;
-    double key = QDateTime::currentDateTime().toTime_t();
-    static double lastPointKey=0;
-    if(key-lastPointKey>0.0){
-        for(int i=0;i<8;i++){
-            plots.at(i)->graph(0)->addData(key,emg[i]);
-            plots.at(i)->xAxis->setRange(key,2,Qt::AlignRight);
-        }
-        lastPointKey = key;
+    QTime time(QTime::currentTime());
+    double key = time.msecsSinceStartOfDay()/1000.0;
+
+    for(int i=0;i<8;i++){
+        plots.at(i)->graph(0)->addData(key,emg[i]);
+        plots.at(i)->xAxis->setRange(key,4,Qt::AlignRight);
     }
 
     if(count == 4){
         for(int i=0;i<8;i++){
-            plots.at(0)->replot();
+            plots.at(i)->replot();
         }
         count = 0;
     }
