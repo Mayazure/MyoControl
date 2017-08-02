@@ -1,4 +1,4 @@
- #include "adapter.h"
+#include "adapter.h"
 #include <QDebug>
 
 Adapter::Adapter(QObject *parent):QThread(parent)
@@ -39,7 +39,7 @@ void Adapter::updateTotalNum(int label)
 
 void Adapter::updateGraph(int* emg, int a,int b,int c, int d, int e, int f,int g, int h)
 {
-//    qDebug()<<emg[0];
+    //    qDebug()<<emg[0];
     emit requestUpdateGraph(emg, a,b,c,d,e,f,g,h);
 }
 
@@ -59,6 +59,13 @@ QString Adapter::getFileName()
     return fileName;
 }
 
+void Adapter::pingMyo()
+{
+    if(START){
+        myo->vibrate(myo->VibrationType::vibrationMedium);
+    }
+}
+
 volatile void Adapter::setRunningFlag(bool flag)
 {
     this->threadRun = flag;
@@ -75,6 +82,11 @@ volatile void Adapter::setLoggingFlag(bool flag)
     }
 }
 
+volatile void Adapter::setStart(bool flag)
+{
+    START = flag;
+}
+
 void Adapter::setEvent(QString event)
 {
     this->dc->setEvent(event);
@@ -85,10 +97,12 @@ void Adapter::run()
     try {
 
         myo::Hub hub("com.undercoveryeti.myo-data-capture");
+        //        hub = new myo::Hub("com.undercoveryeti.myo-data-capture");
 
         emit requestUpdateConsole("Attempting to find a Myo...");
 
-        myo::Myo* myo = hub.waitForMyo(10000);
+        //        myo::Myo* myo = hub.waitForMyo(10000);
+        myo = hub.waitForMyo(10000);
 
         // If waitForMyo() returned a null pointer, we failed to find a Myo, so exit with an error message.
         if (!myo) {
@@ -103,7 +117,7 @@ void Adapter::run()
         myo->setStreamEmg(myo::Myo::streamEmgEnabled);
 
         // Next we construct an instance of our DeviceListener, so that we can register it with the Hub.
-//        DataCollector collector;
+        //        DataCollector collector;
 
         // Hub::addListener() takes the address of any object whose class inherits from DeviceListener, and will cause
         // Hub::run() to send events to all registered device listeners.

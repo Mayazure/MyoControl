@@ -53,6 +53,7 @@ private slots:
     void on_buttonBse8_clicked();
     void on_graphButton_clicked();
     void on_buttonTest_clicked();
+    void on_buttonCtrPing_clicked();
 };
 
 #endif // MAINWINDOW_H

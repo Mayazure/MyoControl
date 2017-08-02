@@ -203,12 +203,14 @@ void MainWindow::on_buttonEnd_clicked()
 void MainWindow::on_buttonCtrStart_clicked()
 {
     this->adapter->setRunningFlag(true);
+    this->adapter->setStart(true);
     this->adapter->start();
 }
 
 void MainWindow::on_buttonCtrStop_clicked()
 {
     this->adapter->setRunningFlag(false);
+    this->adapter->setStart(false);
 //    this->graphAdapter->close();
 }
 
@@ -233,4 +235,9 @@ void MainWindow::on_graphButton_clicked()
     else{
         form->hide();
     }
+}
+
+void MainWindow::on_buttonCtrPing_clicked()
+{
+    adapter->pingMyo();
 }

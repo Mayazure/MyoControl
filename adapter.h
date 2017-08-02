@@ -18,6 +18,7 @@ public:
 
     volatile void setRunningFlag(bool flag);
     volatile void setLoggingFlag(bool flag);
+    volatile void setStart(bool flag);
     void setEvent(QString event);
 
     void updateConsole(QString data);
@@ -28,10 +29,13 @@ public:
     QString getFilePath();
     QString getFileName();
 
+    void pingMyo();
+
 protected:
     void run();
 
 private:
+    volatile bool START = false;
     volatile bool threadRun = false;
     QString filePath;
     QString fileName;
@@ -41,6 +45,8 @@ private:
     int oriNum = 0;
     int oreNum = 0;
     DataCollector *dc;
+
+    myo::Myo* myo;
 
 signals:
     void requestUpdateConsole(QString data);
