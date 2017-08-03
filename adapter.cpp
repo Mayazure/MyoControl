@@ -4,6 +4,9 @@
 Adapter::Adapter(QObject *parent):QThread(parent)
 {
     dc = new DataCollector(this);
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(checkBattery()));
+    timer->start(3000);
 }
 
 void Adapter::updateConsole(QString data)
@@ -37,6 +40,11 @@ void Adapter::updateTotalNum(int label)
     }
 }
 
+void Adapter::updateBattery(int level)
+{
+    emit(requestUpdateBattery(level));
+}
+
 void Adapter::updateGraph(int* emg, int a,int b,int c, int d, int e, int f,int g, int h)
 {
     //    qDebug()<<emg[0];
@@ -63,6 +71,13 @@ void Adapter::pingMyo()
 {
     if(START){
         myo->vibrate(myo->VibrationType::vibrationMedium);
+    }
+}
+
+void Adapter::checkBattery()
+{
+    if(START){
+        myo->requestBatteryLevel();
     }
 }
 
@@ -115,6 +130,7 @@ void Adapter::run()
 
         // Next we enable EMG streaming on the found Myo.
         myo->setStreamEmg(myo::Myo::streamEmgEnabled);
+        myo->requestBatteryLevel();
 
         // Next we construct an instance of our DeviceListener, so that we can register it with the Hub.
         //        DataCollector collector;

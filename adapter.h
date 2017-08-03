@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include <QString>
+#include <QTimer>
 
 #include "myo/myo.hpp"
 #include "datacollector.h"
@@ -23,6 +24,7 @@ public:
 
     void updateConsole(QString data);
     void updateTotalNum(int label);
+    void updateBattery(int level);
     void updateGraph(int* emg, int a,int b,int c, int d, int e, int f,int g, int h);
 
     void setPath(QString filePath, QString fileName);
@@ -45,14 +47,18 @@ private:
     int oriNum = 0;
     int oreNum = 0;
     DataCollector *dc;
+    QTimer *timer;
 
     myo::Myo* myo;
 
 signals:
     void requestUpdateConsole(QString data);
+    void requestUpdateBattery(int level);
     void requestUpdateTotalNum(QString num, int label);
     void requestUpdateGraph(int*, int a,int b,int c, int d, int e, int f,int g, int h);
 
+private slots:
+    void checkBattery();
 };
 
 #endif // ADAPTER_H

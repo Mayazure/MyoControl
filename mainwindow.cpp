@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     adapter = new Adapter();
     connect(adapter,SIGNAL(requestUpdateConsole(QString)),this,SLOT(updateConsole(QString)));
     connect(adapter,SIGNAL(requestUpdateTotalNum(QString,int)),this,SLOT(updateTotalNum(QString,int)));
+    connect(adapter,SIGNAL(requestUpdateBattery(int)),this,SLOT(updateBattery(int)));
     //    adapter->test();
     form = new Form();
     connect(adapter,SIGNAL(requestUpdateGraph(int*,int,int,int,int,int,int,int,int)),form,SLOT(realtimeDataSlot(int*,int,int,int,int,int,int,int,int)));
@@ -66,6 +67,11 @@ void MainWindow::updateTotalNum(QString num, int label)
         ui->oreNumber->setText(num);
         break;
     }
+}
+
+void MainWindow::updateBattery(int level)
+{
+    this->ui->batteryLabel->setText("Battery: "+QString::number(level)+"%");
 }
 
 //void MainWindow::updateGraph(int data)

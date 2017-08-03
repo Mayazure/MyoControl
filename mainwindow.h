@@ -40,6 +40,7 @@ private:
 private slots:
     void updateConsole(QString data);
     void updateTotalNum(QString num, int label);
+    void updateBattery(int level);
     void on_buttonStart_clicked();
     void on_buttonEnd_clicked();
     void on_buttonCtrStart_clicked();

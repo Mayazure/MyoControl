@@ -98,6 +98,12 @@ void DataCollector::onConnect(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVe
     myo->setStreamEmg(myo::Myo::streamEmgEnabled);
     openFiles();
     //    qDebug() << "onConnect";
+    QString version = QString::number(firmwareVersion.firmwareVersionMajor);
+    version+=".";
+    version+=QString::number(firmwareVersion.firmwareVersionMinor);
+    version+=".";
+    version+=QString::number(firmwareVersion.firmwareVersionPatch);
+    ad->updateConsole("Version: "+version);
 }
 
 void DataCollector::onPair(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVersion firmwareVersion)
@@ -133,6 +139,12 @@ void DataCollector::onLock(myo::Myo *myo, uint64_t timestamp)
 void DataCollector::onWarmupCompleted(myo::Myo *myo, uint64_t timestamp, myo::WarmupResult warmupResult)
 {
     ad->updateConsole(QString::number(timestamp)+": WarmupCompleted.");
+}
+
+void DataCollector::onBatteryLevelReceived(myo::Myo *myo, uint64_t timestamp, uint8_t level)
+{
+//    ad->updateConsole("Battery: "+QString::number(level)+"%");
+    ad->updateBattery(level);
 }
 
 volatile void DataCollector::setLoggingFlag(bool flag)

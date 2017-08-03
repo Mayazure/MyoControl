@@ -39,6 +39,7 @@ public:
     void onUnlock (myo::Myo *myo, uint64_t timestamp);
     void onLock (myo::Myo *myo, uint64_t timestamp);
     void onWarmupCompleted (myo::Myo *myo, uint64_t timestamp, myo::WarmupResult warmupResult);
+    void onBatteryLevelReceived (myo::Myo *myo, uint64_t timestamp, uint8_t level);
 
     volatile void setLoggingFlag(bool flag);
     void setEvent(QString event);
