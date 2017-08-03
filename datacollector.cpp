@@ -100,6 +100,41 @@ void DataCollector::onConnect(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVe
     //    qDebug() << "onConnect";
 }
 
+void DataCollector::onPair(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVersion firmwareVersion)
+{
+    ad->updateConsole(QString::number(timestamp)+": Pair.");
+}
+
+void DataCollector::onUnpair(myo::Myo *myo, uint64_t timestamp)
+{
+    ad->updateConsole(QString::number(timestamp)+": unPair.");
+}
+
+void DataCollector::onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState)
+{
+    ad->updateConsole(QString::number(timestamp)+": ArmSync.");
+}
+
+void DataCollector::onArmUnsync(myo::Myo *myo, uint64_t timestamp)
+{
+    ad->updateConsole(QString::number(timestamp)+": ArmUnsync.");
+}
+
+void DataCollector::onUnlock(myo::Myo *myo, uint64_t timestamp)
+{
+    ad->updateConsole(QString::number(timestamp)+": Unlock.");
+}
+
+void DataCollector::onLock(myo::Myo *myo, uint64_t timestamp)
+{
+    ad->updateConsole(QString::number(timestamp)+": Lock.");
+}
+
+void DataCollector::onWarmupCompleted(myo::Myo *myo, uint64_t timestamp, myo::WarmupResult warmupResult)
+{
+    ad->updateConsole(QString::number(timestamp)+": WarmupCompleted.");
+}
+
 volatile void DataCollector::setLoggingFlag(bool flag)
 {
     this->loggingFlag = flag;

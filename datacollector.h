@@ -31,6 +31,14 @@ public:
     void onAccelerometerData(myo::Myo *myo, uint64_t timestamp, const myo::Vector3< float > &accel);
     void onGyroscopeData(myo::Myo *myo, uint64_t timestamp, const myo::Vector3< float > &gyro);
     void onConnect(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVersion firmwareVersion);
+    void onPair (myo::Myo *myo, uint64_t timestamp, myo::FirmwareVersion firmwareVersion);
+    void onUnpair (myo::Myo *myo, uint64_t timestamp);
+    void onArmSync (myo::Myo *myo, uint64_t timestamp, myo::Arm arm,
+                    myo::XDirection xDirection, float rotation, myo::WarmupState warmupState);
+    void onArmUnsync (myo::Myo *myo, uint64_t timestamp);
+    void onUnlock (myo::Myo *myo, uint64_t timestamp);
+    void onLock (myo::Myo *myo, uint64_t timestamp);
+    void onWarmupCompleted (myo::Myo *myo, uint64_t timestamp, myo::WarmupResult warmupResult);
 
     volatile void setLoggingFlag(bool flag);
     void setEvent(QString event);
