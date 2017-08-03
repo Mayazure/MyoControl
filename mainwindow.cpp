@@ -71,6 +71,14 @@ void MainWindow::updateTotalNum(QString num, int label)
 
 void MainWindow::updateBattery(int level)
 {
+    QPalette pe;
+    if(level<=20){
+        pe.setColor(QPalette::WindowText,Qt::red);
+    }
+    else{
+        pe.setColor(QPalette::WindowText,Qt::black);
+    }
+    ui->batteryLabel->setPalette(pe);
     this->ui->batteryLabel->setText("Battery: "+QString::number(level)+"%");
 }
 

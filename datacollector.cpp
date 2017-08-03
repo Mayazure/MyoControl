@@ -15,13 +15,12 @@ DataCollector::DataCollector(Adapter *ad)
 
 void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* emg)
 {
+    static int emgData[8];
     if(loggingFlag){
         emgFile << timestamp << ',';
         QByteArray temp = event.toLatin1();
         char* eventChar = temp.data();
         emgFile << eventChar;
-
-        static int emgData[8];
 
         for (size_t i = 0; i < 8; i++) {
             emgFile << ',' << static_cast<int>(emg[i]);
@@ -31,9 +30,10 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         emgFile << std::endl;
         ad->updateTotalNum(0);
 
-        ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
+//        ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
 //        qDebug()<<a[0];
     }
+    ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
 }
 
 void DataCollector::onOrientationData(myo::Myo *myo, uint64_t timestamp, const myo::Quaternion< float > &rotation) {
