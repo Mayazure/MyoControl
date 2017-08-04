@@ -30,8 +30,8 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         emgFile << std::endl;
         ad->updateTotalNum(0);
 
-//        ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
-//        qDebug()<<a[0];
+        //        ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
+        //        qDebug()<<a[0];
     }
     ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
 }
@@ -143,8 +143,25 @@ void DataCollector::onWarmupCompleted(myo::Myo *myo, uint64_t timestamp, myo::Wa
 
 void DataCollector::onBatteryLevelReceived(myo::Myo *myo, uint64_t timestamp, uint8_t level)
 {
-//    ad->updateConsole("Battery: "+QString::number(level)+"%");
+    //    ad->updateConsole("Battery: "+QString::number(level)+"%");
     ad->updateBattery(level);
+}
+
+void DataCollector::onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose)
+{
+    if (pose != myo::Pose::unknown && pose != myo::Pose::rest) {
+        // Tell the Myo to stay unlocked until told otherwise. We do that here so you can hold the poses without the
+        // Myo becoming locked.
+        myo->unlock(myo::Myo::unlockHold);
+        // Notify the Myo that the pose has resulted in an action, in this case changing
+        // the text on the screen. The Myo will vibrate.
+        myo->notifyUserAction();
+    } else {
+        // Tell the Myo to stay unlocked only for a short period. This allows the Myo to stay unlocked while poses
+        // are being performed, but lock after inactivity.
+        myo->unlock(myo::Myo::unlockTimed);
+    }
+    ad->updateConsole(QString::fromStdString(pose.toString()));
 }
 
 volatile void DataCollector::setLoggingFlag(bool flag)

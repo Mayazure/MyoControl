@@ -41,6 +41,8 @@ public:
     void onWarmupCompleted (myo::Myo *myo, uint64_t timestamp, myo::WarmupResult warmupResult);
     void onBatteryLevelReceived (myo::Myo *myo, uint64_t timestamp, uint8_t level);
 
+    void onPose (myo::Myo *myo, uint64_t timestamp, myo::Pose pose);
+
     volatile void setLoggingFlag(bool flag);
     void setEvent(QString event);
     QString getEvent();

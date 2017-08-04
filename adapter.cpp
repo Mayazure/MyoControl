@@ -140,6 +140,7 @@ void Adapter::run()
         hub.addListener(dc);
 
         // Finally we enter our main loop.
+
         while (threadRun) {
             // In each iteration of our main loop, we run the Myo event loop for a set number of milliseconds.
             // In this case, we wish to update our display 50 times a second, so we run for 1000/20 milliseconds.
