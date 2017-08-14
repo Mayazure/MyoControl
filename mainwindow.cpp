@@ -194,6 +194,12 @@ void MainWindow::on_buttonCityFull_clicked()
     setEventState("ready");
 }
 
+void MainWindow::on_buttonExtra_clicked()
+{
+    setEventName("Extra");
+    setEventState("ready");
+}
+
 void MainWindow::on_buttonStart_clicked()
 {
     QString newEvent = ui->eventName->text();
@@ -255,3 +261,5 @@ void MainWindow::on_buttonCtrPing_clicked()
 {
     adapter->pingMyo();
 }
+
+

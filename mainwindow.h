@@ -55,6 +55,7 @@ private slots:
     void on_graphButton_clicked();
     void on_buttonTest_clicked();
     void on_buttonCtrPing_clicked();
+    void on_buttonExtra_clicked();
 };
 
 #endif // MAINWINDOW_H
