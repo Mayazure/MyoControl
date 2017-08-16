@@ -101,7 +101,7 @@ void Form::realtimeDataSlot(int index, int* emgData, int a,int b,int c, int d, i
     if(count == 8){
         for(int i=0;i<8;i++){
             plots.at(i)->replot();
-            plotsHigh.at(1)->replot();
+            plotsHigh.at(i)->replot();
         }
         count = 0;
     }
