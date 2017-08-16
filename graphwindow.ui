@@ -19,6 +19,9 @@
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QWidget" name="low" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QCustomPlot" name="customePlot" native="true"/>
@@ -43,36 +46,6 @@
       </item>
       <item>
        <widget class="QCustomPlot" name="customePlot7" native="true"/>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QWidget" name="high" native="true">
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <widget class="QCustomPlot" name="customePlot8" native="true"/>
-      </item>
-      <item>
-       <widget class="QCustomPlot" name="customePlot9" native="true"/>
-      </item>
-      <item>
-       <widget class="QCustomPlot" name="customePlot10" native="true"/>
-      </item>
-      <item>
-       <widget class="QCustomPlot" name="customePlot11" native="true"/>
-      </item>
-      <item>
-       <widget class="QCustomPlot" name="customePlot12" native="true"/>
-      </item>
-      <item>
-       <widget class="QCustomPlot" name="customePlot13" native="true"/>
-      </item>
-      <item>
-       <widget class="QCustomPlot" name="customePlot14" native="true"/>
-      </item>
-      <item>
-       <widget class="QCustomPlot" name="customePlot15" native="true"/>
       </item>
      </layout>
     </widget>

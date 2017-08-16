@@ -22,18 +22,18 @@ Form::Form(QWidget *parent) :
     plots.append(ui->customePlot6);
     plots.append(ui->customePlot7);
 
-    plotsHigh.clear();
-    plotsHigh.append(ui->customePlot8);
-    plotsHigh.append(ui->customePlot9);
-    plotsHigh.append(ui->customePlot10);
-    plotsHigh.append(ui->customePlot11);
-    plotsHigh.append(ui->customePlot12);
-    plotsHigh.append(ui->customePlot13);
-    plotsHigh.append(ui->customePlot14);
-    plotsHigh.append(ui->customePlot15);
+//    plotsHigh.clear();
+//    plotsHigh.append(ui->customePlot8);
+//    plotsHigh.append(ui->customePlot9);
+//    plotsHigh.append(ui->customePlot10);
+//    plotsHigh.append(ui->customePlot11);
+//    plotsHigh.append(ui->customePlot12);
+//    plotsHigh.append(ui->customePlot13);
+//    plotsHigh.append(ui->customePlot14);
+//    plotsHigh.append(ui->customePlot15);
 
     setupRealtimeData(plots);
-    setupRealtimeData(plotsHigh);
+//    setupRealtimeData(plotsHigh);
 }
 
 Form::~Form()
@@ -84,24 +84,24 @@ void Form::realtimeDataSlot(int index, int* emgData, int a,int b,int c, int d, i
     QTime time(QTime::currentTime());
     double key = time.msecsSinceStartOfDay()/1000.0;
 
-    if(index==0){
+//    if(index==0){
         for(int i=0;i<8;i++){
             plots.at(i)->graph(0)->addData(key,emg[i]);
             plots.at(i)->xAxis->setRange(key,4,Qt::AlignRight);
         }
-    }
-    else{
-        for(int i=0;i<8;i++){
-            plotsHigh.at(i)->graph(0)->addData(key,emg[i]);
-            plotsHigh.at(i)->xAxis->setRange(key,4,Qt::AlignRight);
-        }
-    }
+//    }
+//    else{
+//        for(int i=0;i<8;i++){
+//            plotsHigh.at(i)->graph(0)->addData(key,emg[i]);
+//            plotsHigh.at(i)->xAxis->setRange(key,4,Qt::AlignRight);
+//        }
+//    }
 
 
-    if(count == 8){
+    if(count == 4){
         for(int i=0;i<8;i++){
             plots.at(i)->replot();
-            plotsHigh.at(i)->replot();
+//            plotsHigh.at(i)->replot();
         }
         count = 0;
     }

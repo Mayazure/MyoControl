@@ -16,19 +16,19 @@ DataCollector::DataCollector(Adapter *ad)
 void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* emg)
 {
     static int emgData[8];
-    static uint64_t lastTimestamp = 0;
-    static int index = 0;
+//    static uint64_t lastTimestamp = 0;
+    static int index = 0;//kept for debug
 
-    if(lastTimestamp!=timestamp){
-        lastTimestamp=timestamp;
-        index = 0;
-    }
-    else if(index>1){
-        index = 0;
-        static int i=0;
-        qDebug()<<i<<"index>1";
-        i++;
-    }
+//    if(lastTimestamp!=timestamp){
+//        lastTimestamp=timestamp;
+//        index = 0;
+//    }
+//    else if(index>1){
+//        index = 0;
+//        static int i=0;
+//        qDebug()<<i<<"index>1";
+//        i++;
+//    }
 
     if(loggingFlag){
         emgFile << timestamp << ',';
@@ -48,7 +48,7 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         //        qDebug()<<a[0];
     }
     ad->updateGraph(index, emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
-    index++;
+//    index++;
 }
 
 void DataCollector::onOrientationData(myo::Myo *myo, uint64_t timestamp, const myo::Quaternion< float > &rotation) {
