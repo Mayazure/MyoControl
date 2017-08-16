@@ -45,10 +45,10 @@ void Adapter::updateBattery(int level)
     emit(requestUpdateBattery(level));
 }
 
-void Adapter::updateGraph(int* emg, int a,int b,int c, int d, int e, int f,int g, int h)
+void Adapter::updateGraph(int index, int* emg, int a,int b,int c, int d, int e, int f,int g, int h)
 {
     //    qDebug()<<emg[0];
-    emit requestUpdateGraph(emg, a,b,c,d,e,f,g,h);
+    emit requestUpdateGraph(index, emg, a,b,c,d,e,f,g,h);
 }
 
 void Adapter::setPath(QString filePath, QString fileName)

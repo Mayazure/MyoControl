@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(adapter,SIGNAL(requestUpdateBattery(int)),this,SLOT(updateBattery(int)));
     //    adapter->test();
     form = new Form();
-    connect(adapter,SIGNAL(requestUpdateGraph(int*,int,int,int,int,int,int,int,int)),form,SLOT(realtimeDataSlot(int*,int,int,int,int,int,int,int,int)));
+    connect(adapter,SIGNAL(requestUpdateGraph(int, int*,int,int,int,int,int,int,int,int)),form,SLOT(realtimeDataSlot(int, int*,int,int,int,int,int,int,int,int)));
 //    form->show();
 }
 

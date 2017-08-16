@@ -22,7 +22,18 @@ Form::Form(QWidget *parent) :
     plots.append(ui->customePlot6);
     plots.append(ui->customePlot7);
 
+    plotsHigh.clear();
+    plotsHigh.append(ui->customePlot8);
+    plotsHigh.append(ui->customePlot9);
+    plotsHigh.append(ui->customePlot10);
+    plotsHigh.append(ui->customePlot11);
+    plotsHigh.append(ui->customePlot12);
+    plotsHigh.append(ui->customePlot13);
+    plotsHigh.append(ui->customePlot14);
+    plotsHigh.append(ui->customePlot15);
+
     setupRealtimeData(plots);
+    setupRealtimeData(plotsHigh);
 }
 
 Form::~Form()
@@ -66,21 +77,31 @@ void Form::setupRealtimeData(QList<QCustomPlot*> plots)
 
 }
 
-void Form::realtimeDataSlot(int* emgData, int a,int b,int c, int d, int e, int f,int g, int h)
+void Form::realtimeDataSlot(int index, int* emgData, int a,int b,int c, int d, int e, int f,int g, int h)
 {
     int emg[8]={a,b,c,d,e,f,g,h};
 
     QTime time(QTime::currentTime());
     double key = time.msecsSinceStartOfDay()/1000.0;
 
-    for(int i=0;i<8;i++){
-        plots.at(i)->graph(0)->addData(key,emg[i]);
-        plots.at(i)->xAxis->setRange(key,4,Qt::AlignRight);
+    if(index==0){
+        for(int i=0;i<8;i++){
+            plots.at(i)->graph(0)->addData(key,emg[i]);
+            plots.at(i)->xAxis->setRange(key,4,Qt::AlignRight);
+        }
+    }
+    else{
+        for(int i=0;i<8;i++){
+            plotsHigh.at(i)->graph(0)->addData(key,emg[i]);
+            plotsHigh.at(i)->xAxis->setRange(key,4,Qt::AlignRight);
+        }
     }
 
-    if(count == 4){
+
+    if(count == 8){
         for(int i=0;i<8;i++){
             plots.at(i)->replot();
+            plotsHigh.at(1)->replot();
         }
         count = 0;
     }

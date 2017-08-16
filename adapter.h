@@ -25,7 +25,7 @@ public:
     void updateConsole(QString data);
     void updateTotalNum(int label);
     void updateBattery(int level);
-    void updateGraph(int* emg, int a,int b,int c, int d, int e, int f,int g, int h);
+    void updateGraph(int index, int* emg, int a,int b,int c, int d, int e, int f,int g, int h);
 
     void setPath(QString filePath, QString fileName);
     QString getFilePath();
@@ -55,7 +55,7 @@ signals:
     void requestUpdateConsole(QString data);
     void requestUpdateBattery(int level);
     void requestUpdateTotalNum(QString num, int label);
-    void requestUpdateGraph(int*, int a,int b,int c, int d, int e, int f,int g, int h);
+    void requestUpdateGraph(int index, int*, int a,int b,int c, int d, int e, int f,int g, int h);
 
 private slots:
     void checkBattery();

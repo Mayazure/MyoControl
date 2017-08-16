@@ -13,9 +13,18 @@ DataCollector::DataCollector(Adapter *ad)
     //    openFiles();
 }
 
+
+//static uint64_t lastTimestamp = 0;
+
 void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* emg)
 {
     static int emgData[8];
+    static int index = 0;
+
+//    if(lastTimestamp!=timestamp){
+//        lastTimestamp=timestamp;
+//    }
+
     if(loggingFlag){
         emgFile << timestamp << ',';
         QByteArray temp = event.toLatin1();
@@ -33,7 +42,7 @@ void DataCollector::onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* e
         //        ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
         //        qDebug()<<a[0];
     }
-    ad->updateGraph(emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
+    ad->updateGraph(index, emgData,emg[0],emg[1],emg[2],emg[3],emg[4],emg[5],emg[6],emg[7]);
 }
 
 void DataCollector::onOrientationData(myo::Myo *myo, uint64_t timestamp, const myo::Quaternion< float > &rotation) {

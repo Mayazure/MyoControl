@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>798</width>
-    <height>499</height>
+    <width>1043</width>
+    <height>659</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,45 +16,66 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="spacing">
-    <number>0</number>
-   </property>
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QCustomPlot" name="customePlot" native="true"/>
+    <widget class="QWidget" name="low" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QCustomPlot" name="customePlot" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot1" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot2" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot3" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot4" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot5" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot6" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot7" native="true"/>
+      </item>
+     </layout>
+    </widget>
    </item>
    <item>
-    <widget class="QCustomPlot" name="customePlot1" native="true"/>
-   </item>
-   <item>
-    <widget class="QCustomPlot" name="customePlot2" native="true"/>
-   </item>
-   <item>
-    <widget class="QCustomPlot" name="customePlot3" native="true"/>
-   </item>
-   <item>
-    <widget class="QCustomPlot" name="customePlot4" native="true"/>
-   </item>
-   <item>
-    <widget class="QCustomPlot" name="customePlot5" native="true"/>
-   </item>
-   <item>
-    <widget class="QCustomPlot" name="customePlot6" native="true"/>
-   </item>
-   <item>
-    <widget class="QCustomPlot" name="customePlot7" native="true"/>
+    <widget class="QWidget" name="high" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QCustomPlot" name="customePlot8" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot9" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot10" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot11" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot12" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot13" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot14" native="true"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="customePlot15" native="true"/>
+      </item>
+     </layout>
+    </widget>
    </item>
   </layout>
  </widget>
