@@ -20,11 +20,27 @@ public:
 public slots:
     void realtimeDataSlot(int index, int*, int a,int b,int c, int d, int e, int f,int g, int h);
 
+private slots:
+
+    void on_showAll_clicked();
+    void on_showA_clicked();
+    void on_showB_clicked();
+    void on_showC_clicked();
+    void on_showD_clicked();
+    void on_showE_clicked();
+    void on_showF_clicked();
+    void on_showG_clicked();
+    void on_showH_clicked();
+    void on_showPause_clicked();
+
 private:
     Ui::Form *ui;
     int count = 0;
+    bool reploting = true;
     QList<QCustomPlot*> plots;
     QList<QCustomPlot*> plotsHigh;
+
+    void showGraph(int n);
 };
 
 #endif // GRAPHWINDOW_H

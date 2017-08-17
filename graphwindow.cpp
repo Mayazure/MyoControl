@@ -79,6 +79,10 @@ void Form::setupRealtimeData(QList<QCustomPlot*> plots)
 
 void Form::realtimeDataSlot(int index, int* emgData, int a,int b,int c, int d, int e, int f,int g, int h)
 {
+    if(!reploting){
+        return;
+    }
+
     int emg[8]={a,b,c,d,e,f,g,h};
 
     QTime time(QTime::currentTime());
@@ -107,5 +111,80 @@ void Form::realtimeDataSlot(int index, int* emgData, int a,int b,int c, int d, i
     }
     else{
         count ++;
+    }
+}
+
+void Form::showGraph(int n)
+{
+    if(n==8){
+        for(int i=0;i<8;i++){
+            plots.at(i)->show();
+        }
+    }
+    else{
+        plots.at(n)->show();
+        for(int i=0;i<8;i++){
+            if(i!=n){
+                plots.at(i)->hide();
+            }
+        }
+    }
+
+}
+
+void Form::on_showAll_clicked()
+{
+    showGraph(8);
+}
+
+void Form::on_showA_clicked()
+{
+    showGraph(0);
+}
+
+void Form::on_showB_clicked()
+{
+    showGraph(1);
+}
+
+void Form::on_showC_clicked()
+{
+    showGraph(2);
+}
+
+void Form::on_showD_clicked()
+{
+    showGraph(3);
+}
+
+void Form::on_showE_clicked()
+{
+    showGraph(4);
+}
+
+void Form::on_showF_clicked()
+{
+    showGraph(5);
+}
+
+void Form::on_showG_clicked()
+{
+    showGraph(6);
+}
+
+void Form::on_showH_clicked()
+{
+    showGraph(7);
+}
+
+void Form::on_showPause_clicked()
+{
+    if(reploting){
+        reploting = false;
+        ui->showPause->setText("Start");
+    }
+    else{
+        reploting = true;
+        ui->showPause->setText("Pause");
     }
 }
