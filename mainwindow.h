@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "adapter.h"
 #include "graphwindow.h"
+#include "podwindow.h"
 
 class Adapter;
 class Form;
@@ -36,6 +37,7 @@ private:
     void setEventName(QString name);
     Adapter *adapter;
     Form *form;
+    podwindow *podwindowi;
 
 private slots:
     void updateConsole(QString data);

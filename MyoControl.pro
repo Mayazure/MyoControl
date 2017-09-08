@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     datacollector.cpp \
     adapter.cpp \
     qcustomplot.cpp \
-    graphwindow.cpp
+    graphwindow.cpp \
+    podwindow.cpp
 
 HEADERS  += mainwindow.h \
     myo/cxx/detail/ThrowOnError.hpp \
@@ -48,10 +49,12 @@ HEADERS  += mainwindow.h \
     datacollector.h \
     adapter.h \
     qcustomplot.h \
-    graphwindow.h
+    graphwindow.h \
+    podwindow.h
 
 FORMS    += mainwindow.ui \
-    graphwindow.ui
+    graphwindow.ui \
+    podwindow.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lmyo64
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lmyo64

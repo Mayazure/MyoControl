@@ -1,5 +1,6 @@
 #include "graphwindow.h"
 #include "ui_graphwindow.h"
+#include <QtAlgorithms>
 
 Form::Form(QWidget *parent) :
     QWidget(parent),
@@ -34,6 +35,9 @@ Form::Form(QWidget *parent) :
 
     setupRealtimeData(plots);
 //    setupRealtimeData(plotsHigh);
+
+    podwindowi = new podwindow();
+    podwindowi->show();
 }
 
 Form::~Form()
@@ -84,6 +88,20 @@ void Form::realtimeDataSlot(int index, int* emgData, int a,int b,int c, int d, i
     }
 
     int emg[8]={a,b,c,d,e,f,g,h};
+
+    if(inamount<20){
+        inamount++;
+        for(int i=0;i<8;i++){
+            AVG[i] = AVG[i]+qAbs((double)emg[i]/(double)inamount);
+        }
+    }
+    else{
+        podwindowi->updatePods(AVG,8);
+        inamount = 0;
+        for(int i=0;i<8;i++){
+            AVG[i] = 0;
+        }
+    }
 
     QTime time(QTime::currentTime());
     double key = time.msecsSinceStartOfDay()/1000.0;

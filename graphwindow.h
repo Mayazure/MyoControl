@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "qcustomplot.h"
+#include "podwindow.h"
 
 namespace Ui {
 class Form;
@@ -39,6 +40,10 @@ private:
     bool reploting = true;
     QList<QCustomPlot*> plots;
     QList<QCustomPlot*> plotsHigh;
+
+    int inamount = 0;
+    double AVG[8] = {0,0,0,0,0,0,0,0};
+    podwindow *podwindowi;
 
     void showGraph(int n);
 };
