@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     adapter.cpp \
     qcustomplot.cpp \
     graphwindow.cpp \
-    podwindow.cpp
+    podwindow.cpp \
+    myobutton.cpp
 
 HEADERS  += mainwindow.h \
     myo/cxx/detail/ThrowOnError.hpp \
@@ -50,7 +51,8 @@ HEADERS  += mainwindow.h \
     adapter.h \
     qcustomplot.h \
     graphwindow.h \
-    podwindow.h
+    podwindow.h \
+    myobutton.h
 
 FORMS    += mainwindow.ui \
     graphwindow.ui \

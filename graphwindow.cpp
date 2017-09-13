@@ -36,6 +36,10 @@ Form::Form(QWidget *parent) :
     setupRealtimeData(plots);
 //    setupRealtimeData(plotsHigh);
 
+    for(int i=0;i<8;i++){
+        AVG[i] = 0;
+    }
+
     podwindowi = new podwindow();
     podwindowi->show();
 }

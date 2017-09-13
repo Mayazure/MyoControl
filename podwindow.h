@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QToolButton>
+#include "myobutton.h"
 
 namespace Ui {
 class podwindow;
@@ -21,6 +22,8 @@ public:
 private:
     Ui::podwindow *ui;
     QList<QToolButton*> pods;
+    MyoButton* myobutton;
+    QList<MyoButton*> ePods;
 };
 
 #endif // PODWINDOW_H

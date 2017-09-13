@@ -15,6 +15,20 @@ podwindow::podwindow(QWidget *parent) :
     pods.append(ui->toolButton_6);
     pods.append(ui->toolButton_7);
     pods.append(ui->toolButton_8);
+
+    myobutton = new MyoButton();
+    myobutton->setAngle(45);
+    myobutton->setLevel(255);
+    myobutton->setL(20,0);
+    myobutton->update();
+    ui->widget->layout()->addWidget(myobutton);
+
+//    for(int i=0;i<8;i++){
+//        MyoButton* myobutton = new MyoButton();
+//        ePods.append(myobutton);
+//    }
+
+
 }
 
 podwindow::~podwindow()
@@ -49,7 +63,21 @@ void podwindow::updatePods(double *podsvalue, int len)
         toolbutton->setText(QString::number(podsvalue[i])+" : "+gb);
         toolbutton->setStyleSheet("background-color: rgb(255, "+gb+", "+gb+");");
 
+        if(i==0){
+            int value = podsvalue[i];
+            if(value>255){
+                value = 255;
+            }
+            else if(value<0){
+                value = 0;
+            }
+
+            myobutton->setLevel(value);
+            myobutton->update();
+        }
+
 //        palette.setColor(QPalette::Background,QColor(valueR,0,0));
 //        toolbutton->setPalette(palette);
     }
+
 }

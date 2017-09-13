@@ -42,7 +42,7 @@ private:
     QList<QCustomPlot*> plotsHigh;
 
     int inamount = 0;
-    double AVG[8] = {0,0,0,0,0,0,0,0};
+    double AVG[8];
     podwindow *podwindowi;
 
     void showGraph(int n);
