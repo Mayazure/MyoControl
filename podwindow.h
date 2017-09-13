@@ -5,6 +5,12 @@
 #include <QToolButton>
 #include "myobutton.h"
 
+struct podsPropertie{
+    int angle = 0;
+    int l1 = 0;
+    int l2 = 0;
+};
+
 namespace Ui {
 class podwindow;
 }
@@ -24,6 +30,13 @@ private:
     QList<QToolButton*> pods;
     MyoButton* myobutton;
     QList<MyoButton*> ePods;
+    podsPropertie podsPro[8];
+
+    void initPods();
+    //    void initPodsPro();
+
+private slots:
+    void button0_clicked();
 };
 
 #endif // PODWINDOW_H
