@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "qcustomplot.h"
 #include "podwindow.h"
+#include "scatterwindow.h"
 
 namespace Ui {
 class Form;
@@ -44,6 +45,7 @@ private:
     int inamount = 0;
     double AVG[8];
     podwindow *podwindowi;
+    ScatterWindow *scatterWindow;
 
     void showGraph(int n);
 };

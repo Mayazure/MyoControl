@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT    += datavisualization
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
@@ -31,7 +32,8 @@ SOURCES += main.cpp\
     qcustomplot.cpp \
     graphwindow.cpp \
     podwindow.cpp \
-    myobutton.cpp
+    myobutton.cpp \
+    scatterwindow.cpp
 
 HEADERS  += mainwindow.h \
     myo/cxx/detail/ThrowOnError.hpp \
@@ -52,11 +54,13 @@ HEADERS  += mainwindow.h \
     qcustomplot.h \
     graphwindow.h \
     podwindow.h \
-    myobutton.h
+    myobutton.h \
+    scatterwindow.h
 
 FORMS    += mainwindow.ui \
     graphwindow.ui \
-    podwindow.ui
+    podwindow.ui \
+    scatterwindow.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lmyo64
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lmyo64
