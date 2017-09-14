@@ -40,8 +40,8 @@ Form::Form(QWidget *parent) :
         AVG[i] = 0;
     }
 
-    podwindowi = new podwindow();
-    podwindowi->show();
+//    podwindowi = new podwindow();
+//    podwindowi->show();
     scatterWindow = new ScatterWindow();
     scatterWindow->show();
 }

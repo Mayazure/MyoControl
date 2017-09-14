@@ -5,7 +5,7 @@
 //#include <QtDataVisualization/q3dscatter.h>
 //#include <QtDataVisualization/qabstract3dseries.h>
 
-//#include <Q3DScatter>
+#include <Q3DScatter>
 
 using namespace QtDataVisualization;
 
@@ -24,6 +24,7 @@ public:
 private:
     Ui::ScatterWindow *ui;
     Q3DScatter *graph;
+    QWidget *container;
 };
 
 #endif // SCATTERWINDOW_H
