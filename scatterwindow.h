@@ -2,10 +2,10 @@
 #define SCATTERWINDOW_H
 
 #include <QWidget>
-//#include <QtDataVisualization/q3dscatter.h>
-//#include <QtDataVisualization/qabstract3dseries.h>
+#include <QtDataVisualization/q3dscatter.h>
+#include <QtDataVisualization/qabstract3dseries.h>
 
-#include <Q3DScatter>
+//#include <Q3DScatter>
 
 using namespace QtDataVisualization;
 
